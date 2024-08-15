@@ -1,14 +1,14 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
 
 import Link from "./Link";
 import Logo from "../../assets/Logo.png";
 import { SelectedPage } from "../../shared/type";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { useState } from "react";
 
 type Props = {
   selectedPage: SelectedPage;
-  setSelectedPage: (value: string) => void;
+  setSelectedPage: (value: SelectedPage) => void;
   isTopOfPage: boolean;
 };
 

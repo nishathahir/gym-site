@@ -2,7 +2,6 @@ import ActionButton from "../../shared/ActionButton";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import HomePageGraphic from "../../assets/HomePageGraphic.png";
 import HomePageText from "../../assets/HomePageText.png";
-import React from "react";
 import { SelectedPage } from "../../shared/type";
 import SponsorForbes from "../../assets/SponsorForbes.png";
 import SponsorFortune from "../../assets/SponsorFortune.png";
