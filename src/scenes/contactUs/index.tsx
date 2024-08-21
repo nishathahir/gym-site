@@ -1,8 +1,13 @@
+import "react-toastify/dist/ReactToastify.css";
+
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import { color, motion } from "framer-motion";
+
 import ContactUsPageGraphic from "../../assets/ContactUsPageGraphic.png";
 import HText from "../../shared/HText";
 import { SelectedPage } from "../../shared/type";
-import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
@@ -12,16 +17,24 @@ const ContactUs = ({ setSelectedPage }: Props) => {
     px-5 py-3 placeholder-white`;
 
   const {
+    reset,
     register,
     trigger,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (e: any) => {
-    const isValid = await trigger();
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission
+    const isValid = await trigger(); // Validate form
     if (!isValid) {
-      e.preventDefault();
+      return; // Do not proceed if validation fails
     }
+    // Clear form fields
+    reset();
+    // Show toast notification after successful submission
+    toast(
+      "Thank you for your interest in our gym! We'll be in touch with you shortly to help you achieve your fitness goals.",
+    );
   };
 
   return (
@@ -65,11 +78,16 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             }}
           >
             <form
-              target="_blank"
-              onSubmit={onSubmit}
-              action="https://formsubmit.co/nishathahir12@gmail.com"
+              // target="_blank"
+              onSubmit={onSubmit} // action="https://formsubmit.co/nishathahir12@gmail.com"
               method="POST"
             >
+              <ToastContainer
+                closeButton={true}
+                hideProgressBar={true}
+                closeOnClick={true}
+                transition={Bounce}
+              />
               <input
                 className={inputStyles}
                 type="text"
