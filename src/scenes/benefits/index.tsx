@@ -6,6 +6,7 @@ import {
 
 import ActionButton from "../../shared/ActionButton";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import Benefit from "./Benefit";
 import BenefitsPageGraphic from "../../assets/BenefitsPageGraphic.png";
 import HText from "../../shared/HText";
 import { SelectedPage } from "../../shared/type";
@@ -63,74 +64,28 @@ const Benefits = ({ setSelectedPage }: Props) => {
           viewport={{ once: true, amount: 0.5 }}
           variants={container}
         >
-          <motion.div
-            className="mt-5 rounded-md border-2 border-gray-100 px-5 py-16 text-center"
-            variants={childVariant}
-          >
-            <div className="mb-4 flex justify-center">
-              <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-4">
-                <HomeModernIcon className="h-6 w-6" />
-              </div>
-            </div>
-            <h4 className="font-bold">State of the Art Facilities</h4>
-            <p className="my-3">
-              Neque adipiscing amet amet enim. Feugiat dolor enim fermentum in a
-              in lectus pellentesque. Ullamcorper et.
-            </p>
-            <AnchorLink
-              className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-              onClick={() => setSelectedPage(SelectedPage.ContactUs)}
-              href={`#${SelectedPage.ContactUs}`}
-            >
-              <p>Learn More</p>
-            </AnchorLink>
-          </motion.div>
+          <Benefit
+            icon={<HomeModernIcon className="h-6 w-6" />}
+            title="State of the Art Facilities"
+            description="Neque adipiscing amet amet enim. Feugiat dolor enim fermentum in a
+              in lectus pellentesque. Ullamcorper et."
+            setSelectedPage={setSelectedPage}
+          />
 
-          <motion.div
-            className="mt-5 rounded-md border-2 border-gray-100 px-5 py-16 text-center"
-            variants={childVariant}
-          >
-            <div className="mb-4 flex justify-center">
-              <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-4">
-                <UserGroupIcon className="h-6 w-6" />
-              </div>
-            </div>
-            <h4 className="font-bold">State of the Art Facilities</h4>
-            <p className="my-3">
-              Eu ipsum id egestas risus tempus enim semper felis quis. Nec
-              consectetur ac venenatis facilisi est. Eget ac turpis id.
-            </p>
-            <AnchorLink
-              className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-              onClick={() => setSelectedPage(SelectedPage.ContactUs)}
-              href={`#${SelectedPage.ContactUs}`}
-            >
-              <p>Learn More</p>
-            </AnchorLink>
-          </motion.div>
-
-          <motion.div
-            className="mt-5 rounded-md border-2 border-gray-100 px-5 py-16 text-center"
-            variants={childVariant}
-          >
-            <div className="mb-4 flex justify-center">
-              <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-4">
-                <AcademicCapIcon className="h-6 w-6" />
-              </div>
-            </div>
-            <h4 className="font-bold">Expert and Pro Trainers</h4>
-            <p className="my-3">
-              Fusce vestibulum aliquam ut cras. Nisl lectus egestas sapien nisl.
-              Lacus at mi sit pellentesque. Congue parturient.
-            </p>
-            <AnchorLink
-              className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-              onClick={() => setSelectedPage(SelectedPage.ContactUs)}
-              href={`#${SelectedPage.ContactUs}`}
-            >
-              <p>Learn More</p>
-            </AnchorLink>
-          </motion.div>
+          <Benefit
+            icon={<UserGroupIcon className="h-6 w-6" />}
+            title="Top Class User Facilities"
+            description="Eu ipsum id egestas risus tempus enim semper felis quis. Nec
+              consectetur ac venenatis facilisi est. Eget ac turpis id."
+            setSelectedPage={setSelectedPage}
+          />
+          <Benefit
+            icon={<AcademicCapIcon className="h-6 w-6" />}
+            title="Expert and Pro Trainers"
+            description="Neque adipiscing amet amet enim. Feugiat dolor enim fermentum in a
+              in lectus pellentesque. Ullamcorper et."
+            setSelectedPage={setSelectedPage}
+          />
         </motion.div>
 
         {/* GRAPHICS AND DESCRIPTION */}
